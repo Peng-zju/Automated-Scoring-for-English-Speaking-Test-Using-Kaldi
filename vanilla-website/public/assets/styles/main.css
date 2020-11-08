@@ -1,0 +1,52 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 100%; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: #3b3b3b; }
+
+h1, h2, h3, h4, h5 {
+  margin: 6px;
+  padding: 0; }
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  line-height: 23px; }
+  .wrapper > * {
+    grid-column: 2 / -2; }
+  .wrapper header {
+    grid-column: 1 / -1;
+    background: #fdbc9a url(../images/venice-italy.jpg) no-repeat center;
+    background-size: cover;
+    height: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center; }
+    .wrapper header h1 {
+      font-size: 3.5em;
+      text-shadow: -2px -2px 3px #a3a2a2; }
+  .wrapper footer {
+    height: 50px;
+    display: flex;
+    justify-content: flex-end; }
+
+.bacon > img {
+  width: 75px;
+  display: block;
+  margin: auto; }
+
