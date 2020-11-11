@@ -1,3 +1,4 @@
+var readingText = "Excuse me, does the rent include gas, water and electricity?"
 
 var changeTextButton = document.getElementById("changeTextButton");
 var inputTextButton = document.getElementById("inputTextButton");
@@ -25,6 +26,7 @@ function createNewElement(){
 
 function updateTextBox(){
     userCustomText = document.getElementById("exampleFormControlTextarea1").value;
+    readingText = userCustomText;
     inputContainer.innerHTML=userCustomText;
     changeTextButton.classList.remove("hidden");
     inputTextButton.classList.remove("hidden");
