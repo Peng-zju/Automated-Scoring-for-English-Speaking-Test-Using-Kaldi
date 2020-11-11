@@ -1,3 +1,7 @@
 venv/
 
 instance/
+
+app.log
+
+__pycache__/

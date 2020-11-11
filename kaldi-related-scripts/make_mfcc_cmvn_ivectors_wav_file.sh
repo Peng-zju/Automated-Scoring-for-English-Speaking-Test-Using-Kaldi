@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd /home/ubuntu/kaldi/egs/gop/s5/
+
 set -e
 
 # Global configurations
@@ -58,8 +60,3 @@ if [ $stage -le 3 ]; then
     $data $ivector_extractor $ivectors
 fi
 
-if [ $stage -le 4 ]; then
-  # compute Log-likelihoods
-  steps/nnet3/compute_output.sh --cmd "$cmd" --nj $nj \
-    --online-ivector-dir $ivectors $data $model $exp/probs_lpp_lpr
-fi
