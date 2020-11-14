@@ -18,7 +18,7 @@ if [ $# -ne 1 ]; then
 fi
 
 for f in $1; do
-  [ ! -f $f ] && echo "$0: expected file $f to exist" && exit 1;
+  [ ! -f $f ] && echo "$0: expected file $1 to exist" && exit 1;
 done
 
 # This script assumes the nnt3 model and i-vector extractor exist.

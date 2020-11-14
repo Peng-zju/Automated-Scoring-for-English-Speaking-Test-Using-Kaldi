@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Modifications Copyright 2020 Peng Yi
-# Modify the original script to generate GOP for a wav file.
+# This scrpit has been modified to score a single wav file from web/ directory.
 
 # Copyright 2019 Junbo Zhang
 # Apache 2.0
@@ -13,6 +13,7 @@
 # trained acoustic models and transfer learning based logistic regression
 # classifiers, 2015."
 
+cd /home/ubuntu/kaldi/egs/gop/s5/
 
 # You might not want to do this for interactive shells.
 set -e
@@ -40,8 +41,9 @@ data=web/$wav_id/data
 
 if [ ! -d "$ivectors" ] || [ ! -d "$data" ]; then
   make_mfcc_cmvn_ivectors_wav_file.sh $1
-  echo "$wav_id $(cat $2)" > $data/text
 fi
+
+echo "$wav_id $(cat $2)" > $data/text
 
 librispeech_eg=../../librispeech/s5
 model=$librispeech_eg/exp/chain_cleaned/tdnn_1d_sp

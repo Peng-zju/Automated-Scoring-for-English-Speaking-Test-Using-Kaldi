@@ -1,7 +1,11 @@
+cd /home/ubuntu/kaldi/egs/gop/s5/
+
 # Global configurations
 nj=1
 cmd="run.pl"
-stage=1
+stage=0
+
+. ./path.sh
 
 if [ $# -ne 1 ]; then
    echo "Usage: $0 <wav-file>"
@@ -39,16 +43,16 @@ if [ $stage -le 0 ]; then
     --nj $nj --cmd "$cmd" --online-ivector-dir $ivectors \
     $graph_dir $data $model/decode_tgsmall
 
-  rm -r $exp/decode_tgsmall
-  mv $model/decode_tgsmall $exp/decode_tgsmall
+  cp -r $model/decode_tgsmall $exp/decode_tgsmall
+  rm -r $model/decode_tgsmall
 fi
 
 if [ $stage -le 1 ]; then
   # convert lattice to text
   lattice-copy "ark:gunzip -c $exp/decode_tgsmall/lat.1.gz |" ark,t:- | utils/int2sym.pl -f 3 $graph_dir/words.txt > $exp/decode_tgsmall/lat.1.txt
   show_lattice.sh --mode save --format pdf $wav_id $exp/decode_tgsmall/lat.1.gz $graph_dir/words.txt
-  rm $exp/decode_tgsmall/$wav_id.pdf
-  mv $wav_id.pdf $exp/decode_tgsmall/$wav_id.pdf
+  cp $wav_id.pdf $exp/decode_tgsmall/$wav_id.pdf
+  rm $wav_id.pdf
 fi
 
 

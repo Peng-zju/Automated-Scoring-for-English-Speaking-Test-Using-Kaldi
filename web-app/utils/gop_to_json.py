@@ -3,9 +3,7 @@ import json
 import os
 import re
 
-def gop_to_json(wav_path):
-    wav_file=os.path.basename(wav_path)
-    wav_id=os.path.splitext(wav_file)[0].replace('-', '_')
+def gop_to_json(wav_id):
     web_dir = '/home/ubuntu/kaldi/egs/gop/s5/web'
     gop_path = os.path.join(web_dir, wav_id+'/exp/gop/gop.1.txt')
     phones_dict_path = os.path.join(web_dir, wav_id+'/exp/gop/phones-pure.txt')
